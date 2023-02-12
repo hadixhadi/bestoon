@@ -24,6 +24,7 @@ def loginPage(request):
         form=LoginForm(request.POST)
         if form.is_valid():
             cd=form.cleaned_data
+            
             user=authenticate(request,username=cd['username'],password=cd['password'])
             if user is not None:
                 login(request,user)
